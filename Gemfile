@@ -9,10 +9,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.3.0'
 gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
+gem 'font-awesome-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -20,6 +22,14 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'guard'
+  gem 'guard-rails'
+  gem 'guard-bundler'
+  gem 'guard-minitest'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
+  gem 'ruby_gntp' # send notifications
+  gem 'xray-rails'
 end
 group :development, :test do
   gem 'pry-rails'
