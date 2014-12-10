@@ -1,0 +1,13 @@
+= simple_form_for @closet do |f|
+  - if @closet.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@closet.errors.count, "error")
+        prohibited
+        this closet from being saved:
+      %ul
+        - @closet.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :category, collection: @categories, prompt: "Select the clothing category"
+  = f.submit 'Submit', :class => 'button right'
+  = link_to 'Back', users_path, class: 'button left'
