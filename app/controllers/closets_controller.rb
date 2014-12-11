@@ -4,21 +4,7 @@ class ClosetsController < ApplicationController
 
   end
 
-  def new
-    @categories = ["Clothing" , "Accessories" , "Shoes"]
-    @closet = current_user.build_closet
-  end
-
-  def create
-    @categories = ["Clothing" , "Accessories" , "Shoes"]
-    @closet = current_user.closet.new(closets_params)
- 
-    if @closet.save
-      redirect_to root_path
-    else
-      render 'new'
-    end
-  end
+  
 
   def edit
   end
