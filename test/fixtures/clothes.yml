@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  purchase_at: 2014-12-12
+  state_category: MyString
+  brand: MyString
+  notes: MyText
+  type_category: MyString
+  closet_id: 
+  user_id: 
+
+two:
+  name: MyString
+  purchase_at: 2014-12-12
+  state_category: MyString
+  brand: MyString
+  notes: MyText
+  type_category: MyString
+  closet_id: 
+  user_id: 
