@@ -1,0 +1,33 @@
+= simple_form_for [@closet, @clothe]  do |f|
+  / Check if there were any errors saving project task and display them if so
+  - if @clothe.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@clothe.errors.count, "error")
+        prohibited
+        this clothe from being saved:
+      %ul
+        - @clothe.errors.full_messages.each do |msg|
+          %li= msg
+  / Begin rendering the form
+  .form-group
+    = f.input :name
+    %br
+  .form-group
+    = f.input :purchase_at
+    %br
+  .form-group
+    = f.input :brand
+    %br
+  .form-group
+    = f.input :notes
+    %br
+  .form-group
+    = f.input :type_category, collection: @categoriest, prompt: "Select the type of clothes"
+    %br
+  .form-group
+    = f.input :state_category, collection: @categoriess, prompt: "Select the state of the clothes"
+    %br
+  %p
+    = link_to 'Back', root_path, :class => 'button left'
+    = f.submit 'Submit', :class => 'button right'

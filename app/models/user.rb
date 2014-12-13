@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :closet, dependent: :destroy, autosave: true
+  has_one :closet, dependent: :destroy
+  has_many :clothes, through: :closet
+  # delegate :clothes, to: :closet
 
   after_create :give_user_a_closet
   
