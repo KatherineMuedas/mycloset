@@ -29,5 +29,5 @@
     = f.input :state_category, collection: @categoriess, prompt: "Select the state of the clothes"
     %br
   %p
-    = link_to 'Back', root_path, :class => 'button left'
+    = link_to 'Back', closet_path(@closet.id), :class => 'button left'
     = f.submit 'Submit', :class => 'button right'
