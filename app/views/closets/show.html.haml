@@ -1,2 +1,7 @@
-%p My closet!
+%h1 My closet!
 %li= link_to 'Add clothing' , new_closet_clothe_path(@closet.id)
+/ %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
+%ul
+  - @clothes.each do |clothe|
+    %li= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
+   

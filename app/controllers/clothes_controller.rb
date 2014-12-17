@@ -1,9 +1,7 @@
 class ClothesController < ApplicationController
-
-  def index
-    @clothes = Clothe.all
-  end
-
+  before_action :set_closet
+  before_action :set_clothe, only:[:show]
+  
   def dresses_index
     @clothes = Clothe.where(type_category: "Dresses" )
   end
@@ -44,27 +42,23 @@ class ClothesController < ApplicationController
     @clothes = Clothe.where(type_category: "Shorts" )
   end
 
-  def new
+   def new
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
     @categoriess = ["Dirty" , "Clean" ]
-    @clothe = current_user.clothes.new
-    @closet = current_user.closet
-    @clothe = @closet.clothes.build
+    @clothe = @closet.clothes.new
   end
-
-  def create
-    @categories = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
-    @categoriess = ["Dirty" , "Clean" ]
-    @clothe = current_user.clothes.new(clothes_params)
  
+  def create
+    @clothe = @closet.clothes.new(clothe_params)
+    @clothe.user_id = current_user.id
     if @clothe.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Successfully created.'
     else
-      render 'new'
+      render 'new', alert: 'Error'
     end
   end
-
   def show
+    @clothes = @closet.clothes.all
   end
 
   def edit
@@ -78,8 +72,16 @@ class ClothesController < ApplicationController
 
   private
   
-  def clothes_params
-    params.require(:clothe).permit(:name, :purchase_at, :state_category, :brand , :notes , :type_category)
+  def clothe_params
+    params.require(:clothe).permit(:name, :purchase_at, :state_category, :brand , :notes , :type_category, :closet_id, :user_id)
+  end
+
+  def set_closet
+    @closet = Closet.find(params[:closet_id])
+  end
+
+  def set_clothe
+    @clothe = @closet.clothes.find(params[:id])
   end
 
 end
