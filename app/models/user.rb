@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :closet, dependent: :destroy
   has_many :clothes, through: :closet
+  belongs_to :user
   # delegate :clothes, to: :closet
 
   after_create :give_user_a_closet

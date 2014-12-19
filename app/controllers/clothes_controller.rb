@@ -1,7 +1,7 @@
 class ClothesController < ApplicationController
   before_action :set_closet
   before_action :set_clothe, only:[:show]
-  
+  hkk
   def dresses_index
     @clothes = Clothe.where(type_category: "Dresses" )
   end

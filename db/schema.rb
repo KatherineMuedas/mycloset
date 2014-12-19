@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212164629) do
+ActiveRecord::Schema.define(version: 20141219015125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(version: 20141212164629) do
 
   add_index "clothes", ["closet_id"], name: "index_clothes_on_closet_id", using: :btree
   add_index "clothes", ["user_id"], name: "index_clothes_on_user_id", using: :btree
+
+  create_table "pictures", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "picable_id"
+    t.string   "picable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "pictures", ["picable_id", "picable"], name: "index_pictures_on_picable_id_and_picable", using: :btree
+  add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
