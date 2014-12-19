@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141219015125) do
     t.string   "title"
     t.text     "description"
     t.integer  "picable_id"
-    t.string   "picable"
+    t.string   "picable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20141219015125) do
     t.integer  "user_id"
   end
 
-  add_index "pictures", ["picable_id", "picable"], name: "index_pictures_on_picable_id_and_picable", using: :btree
+  add_index "pictures", ["picable_id"], name: "index_pictures_on_picable_id", using: :btree
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

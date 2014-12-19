@@ -1,7 +1,6 @@
 class ClothesController < ApplicationController
   before_action :set_closet
   before_action :set_clothe, only:[:show]
-  hkk
   def dresses_index
     @clothes = Clothe.where(type_category: "Dresses" )
   end
@@ -47,7 +46,7 @@ class ClothesController < ApplicationController
     @categoriess = ["Dirty" , "Clean" ]
     @clothe = @closet.clothes.new
   end
- 
+
   def create
     @clothe = @closet.clothes.new(clothe_params)
     @clothe.user_id = current_user.id
@@ -71,7 +70,7 @@ class ClothesController < ApplicationController
   end
 
   private
-  
+
   def clothe_params
     params.require(:clothe).permit(:name, :purchase_at, :state_category, :brand , :notes , :type_category, :closet_id, :user_id)
   end

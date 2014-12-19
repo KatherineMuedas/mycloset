@@ -5,7 +5,7 @@
   .form-group
     = f.input :name
     %br
-  .form-group
+  .form-grosup
     = f.fields_for :picture, @clothe.build_picture do |picture|
       .nested-fields
         = picture.input :photo

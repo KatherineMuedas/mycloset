@@ -3,11 +3,10 @@ class CreatePictures < ActiveRecord::Migration
     create_table :pictures do |t|
       t.string :title
       t.text :description
-      t.integer :picable_id
-      t.string :picable
+      t.references :picable, polymorphic: true
 
       t.timestamps
     end
-    add_index :pictures, [:picable_id, :picable]
+    add_index :pictures, :picable_id
   end
 end
