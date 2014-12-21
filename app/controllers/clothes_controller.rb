@@ -58,6 +58,7 @@ class ClothesController < ApplicationController
   end
   def show
     @clothes = @closet.clothes.all
+    @picture = @clothe.picture
   end
 
   def edit
@@ -72,7 +73,8 @@ class ClothesController < ApplicationController
   private
 
   def clothe_params
-    params.require(:clothe).permit(:name, :purchase_at, :state_category, :brand , :notes , :type_category, :closet_id, :user_id)
+    picture_attributes = [:id, :title, :description, :photo, :user_id]
+    params.require(:clothe).permit(:name, :purchase_at, :state_category, :brand , :notes , :type_category, :closet_id, :user_id, picture_attributes: picture_attributes)
   end
 
   def set_closet

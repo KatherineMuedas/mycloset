@@ -1,2 +1,7 @@
-%h1 Clothes#show
-%p Find me in app/views/clothes/show.html.haml
+%h1= @clothe.name
+- if @picture 
+  = image_tag (@clothe.picture.photo.url(:medium))
+%p= @clothe.brand
+%p= @clothe.purchase_at
+%p= @clothe.state_category
+%p= @clothe.notes

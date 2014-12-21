@@ -1,11 +1,9 @@
-= simple_form_for [@closet, @clothe]  do |f|
-  / Check if there were any errors saving project task and display them if so
+= simple_form_for [@closet, @clothe]  do |f| 
   = f.error_notification
-  / Begin rendering the form
   .form-group
     = f.input :name
     %br
-  .form-grosup
+  .form-group
     = f.fields_for :picture, @clothe.build_picture do |picture|
       .nested-fields
         = picture.input :photo
