@@ -1,44 +1,44 @@
 class ClothesController < ApplicationController
   before_action :set_closet
-  before_action :set_clothe, only:[:show]
+  before_action :set_clothe, except:[:new, :create , :edit , :destroy]
   def dresses_index
-    @clothes = Clothe.where(type_category: "Dresses" )
+    @clothes = @closet.clothe.where(type_category: "Dresses" )
   end
 
   def skirts_index
-    @clothes = Clothe.where(type_category: "Skirts" )
+    @clothes = @closet.clothe.where(type_category: "Skirts" )
   end
 
   def pants_index
-    @clothes = Clothe.where(type_category: "Pants" )
+    @clothes = @closet.clothe.where(type_category: "Pants" )
   end
 
   def tops_index
-    @clothes = Clothe.where(type_category: "Tops" )
+    @clothes = @closet.clothe.where(type_category: "Tops" )
   end
 
   def jackets_index
-    @clothes = Clothe.where(type_category: "Jackets" )
+    @clothes = @closet.clothe.where(type_category: "Jackets" )
   end
 
   def sweaters_index
-    @clothes = Clothe.where(type_category: "Sweaters" )
+    @clothes = @closet.clothe.where(type_category: "Sweaters" )
   end
 
   def blazers_index
-    @clothes = Clothe.where(type_category: "Blazers" )
+    @clothes = @closet.clothe.where(type_category: "Blazers" )
   end
 
   def jeans_index
-    @clothes = Clothe.where(type_category: "Jeans" )
+    @clothes = @closet.clothe.where(type_category: "Jeans" )
   end
 
   def jumpsuits_index
-    @clothes = Clothe.where(type_category: "Jumpsuits" )
+    @clothes = @closet.clothe.where(type_category: "Jumpsuits" )
   end
 
   def shorts_index
-    @clothes = Clothe.where(type_category: "Shorts" )
+    @clothes = @closet.clothe.where(type_category: "Shorts" )
   end
 
    def new
@@ -51,7 +51,7 @@ class ClothesController < ApplicationController
     @clothe = @closet.clothes.new(clothe_params)
     @clothe.user_id = current_user.id
     if @clothe.save
-      redirect_to root_path, notice: 'Successfully created.'
+      redirect_to @closet, notice: 'Successfully created.'
     else
       render 'new', alert: 'Error'
     end

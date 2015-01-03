@@ -1,7 +1,12 @@
-%h1 My closet!
-%li= link_to 'Add clothing' , new_closet_clothe_path(@closet.id)
-/ %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
-%ul
-  - @clothes.each do |clothe|
-    %li= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
-   
+.large-3.columns.show-for-large-up
+  = render 'closets/clothes_categories'
+.small-12.large-9.columns
+  %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+  %li= link_to 'Add clothing' , new_closet_clothe_path(@closet.id)
+  / %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
+  %ul
+    - @clothes.each do |clothe|
+      %li= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
+      - if clothe.picture 
+        %li= link_to image_tag(clothe.picture.photo.url(:medium)), closet_clothe_path(clothe.closet_id, clothe)
+     
