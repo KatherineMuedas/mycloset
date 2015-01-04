@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :closets, only: [:show, :index] do
     resources :clothes
   end
-  root to: 'closets#index'
+root to: 'closets#index'
 end
+
+

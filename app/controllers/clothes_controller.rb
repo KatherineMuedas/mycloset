@@ -4,7 +4,7 @@ class ClothesController < ApplicationController
   def dresses_index
     @clothes = @closet.clothe.where(type_category: "Dresses" )
   end
-
+ 
   def skirts_index
     @clothes = @closet.clothe.where(type_category: "Skirts" )
   end
