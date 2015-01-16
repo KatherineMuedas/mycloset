@@ -6,6 +6,7 @@ class ClothesController < ApplicationController
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
     @categoriess = ["Dirty" , "Clean" ]
     @clothe = @closet.clothes.new
+    @picture = @clothe.build_picture
   end
 
   def create

@@ -4,8 +4,10 @@
     = f.input :name
     %br
   .form-group
-    = f.fields_for :picture, @clothe.build_picture do |picture|
+    = f.fields_for :picture, @picture do |picture|
       .nested-fields
+        - if @picture.id
+          = image_tag (@picture.photo.url(:medium))
         = picture.input :photo
         = picture.input :user_id, input_html: {value: current_user.id}, as: :hidden
         = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
