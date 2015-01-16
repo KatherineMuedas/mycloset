@@ -1,47 +1,8 @@
 class ClothesController < ApplicationController
   before_action :set_closet
-  before_action :set_clothe, except:[:new, :create , :edit , :destroy]
-  def dresses_index
-    @clothes = @closet.clothe.where(type_category: "Dresses" )
-  end
- 
-  def skirts_index
-    @clothes = @closet.clothe.where(type_category: "Skirts" )
-  end
-
-  def pants_index
-    @clothes = @closet.clothe.where(type_category: "Pants" )
-  end
-
-  def tops_index
-    @clothes = @closet.clothe.where(type_category: "Tops" )
-  end
-
-  def jackets_index
-    @clothes = @closet.clothe.where(type_category: "Jackets" )
-  end
-
-  def sweaters_index
-    @clothes = @closet.clothe.where(type_category: "Sweaters" )
-  end
-
-  def blazers_index
-    @clothes = @closet.clothe.where(type_category: "Blazers" )
-  end
-
-  def jeans_index
-    @clothes = @closet.clothe.where(type_category: "Jeans" )
-  end
-
-  def jumpsuits_index
-    @clothes = @closet.clothe.where(type_category: "Jumpsuits" )
-  end
-
-  def shorts_index
-    @clothes = @closet.clothe.where(type_category: "Shorts" )
-  end
-
-   def new
+  before_action :set_clothe, only:[:show, :edit , :update]
+  
+  def new
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
     @categoriess = ["Dirty" , "Clean" ]
     @clothe = @closet.clothes.new
@@ -62,9 +23,15 @@ class ClothesController < ApplicationController
   end
 
   def edit
+    @picture = @clothe.picture
   end
 
   def update
+    if @clothe.update_attributes(clothe_params)
+      redirect_to closet_clothe_path(@closet.id,@clothe.id), notice: 'Successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
