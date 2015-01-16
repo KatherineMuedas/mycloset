@@ -1,7 +1,18 @@
-%h1= @clothe.name
-- if @picture 
-  = image_tag (@clothe.picture.photo.url(:medium))
-%p= @clothe.brand
-%p= @clothe.purchase_at
-%p= @clothe.state_category
-%p= @clothe.notes
+.small-12.medium-3.large-3.columns
+  - if @picture 
+    = image_tag (@clothe.picture.photo.url(:medium))
+.small-12.medium-9.large-9.columns
+  %h4= @clothe.name
+  %h6= @clothe.brand
+  %p Purchase date: #{@clothe.purchase_at}
+  %p= @clothe.state_category
+  - if @clothe.notes.empty? 
+    %p= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
+    @clothe.id) 
+  - else 
+    %p Notes: #{ @clothe.notes}
+  %li= link_to 'Edit clothes information', edit_closet_clothe_path(@closet.id, 
+    @clothe.id) 
+     
+
+    
