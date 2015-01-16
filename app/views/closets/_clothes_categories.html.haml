@@ -1,4 +1,5 @@
 %ul
+  %h5= link_to "All" , closet_path(@closet.id) 
   %h5= link_to "Dresses" ,closet_path(@closet, type_category: "Dresses")
   %h5= link_to "Skirts" , closet_path(@closet, type_category: "Skirts")
   %h5= link_to "Pants" , closet_path(@closet, type_category: "Pants")
