@@ -1,2 +1,23 @@
-%h1 Closets#edit
-%p Find me in app/views/closets/edit.html.haml
+.authform
+  %h3 Upload Photo
+  = simple_form_for [@article, @picture]  do |f|
+    / Check if there were any errors saving project task and display them if so
+    - if @picture.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@picture.errors.count, "error")
+          prohibited
+          this picture from being saved:
+        %ul
+          - @picture.errors.full_messages.each do |msg|
+            %li= msg
+    / Begin rendering the form
+    .form-group
+      = f.input :photo
+      %br/
+    .form-group
+      = f.input :category, collection: @categories, prompt: "Select the photo category"
+      %br/
+    %p
+      = link_to 'Back', article_path(@article.id), :class => 'button left'
+      = f.submit 'Submit', :class => 'button right'l
