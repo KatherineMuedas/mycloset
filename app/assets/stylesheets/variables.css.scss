@@ -1,3 +1,13 @@
+$white:          #fff;
+$oil:            #333333; 
+$gold:           #b7a600;
+$smoke:          #fafaf6;
+$darker-smoke:   #f2f2ed;
+$gray:           #aaaaaa;
+$soft-gray:      #e5e5e5;
+$dark-gray:      #4f4f4f;
+
+
 $red:            #e54729;
 $sky-blue:       invert($red);
 $blue:           #002e62;
@@ -5,12 +15,11 @@ $yellow:         #ffcc00;
 $green:          lighten(#55a602,8.5%);
 
 $black:          #000;
-$white:          #fff;
 $mid-tone:       #9ea7ad;
 $lighter-tone:   lighten($mid-tone, 30%);
 $light-tone:     lighten($mid-tone, 15%);
 $dark-tone:      darken($mid-tone, 30%);
-$darker-tone:    darken($mid-tone, 45%);
+//$darker-smoke:    darken($smoke, 2.5%);
 
 $primary-color: #008CBA !default;   // bondi-blue
 $secondary-color: #e7e7e7 !default; // white-lilac
@@ -34,6 +43,5 @@ $monsoon       : #777777 !default;
 $steel         : #666666 !default; 
 $charcoal      : #555555 !default;
 $tuatara       : #444444 !default;
-$oil           : #333333 !default;
 $jet           : #222222 !default;
 $black         : #000000 !default;

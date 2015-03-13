@@ -1,14 +1,15 @@
-.large-3.columns.show-for-large-up
-  = render 'closets/clothes_categories'
-.small-12.large-9.columns
-  %h3= link_to 'Add clothing' , new_closet_clothe_path(@closet.id)
-  / %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
-  %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
-    - @clothes.each do |clothe|
-      .container
-        - if clothe.picture 
-          %p= link_to image_tag(clothe.picture.photo.url(:medium)), closet_clothe_path(clothe.closet_id, clothe)
-        %h5= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
-        %hr
+.row.bg-smoke 
+  .large-3.columns.show-for-large-up.bg-darker-smoke.side-container
+    = render 'closets/clothes_categories'
+  .small-12.large-9.columns
+    %h3= link_to 'Add clothing' , new_closet_clothe_path(@closet.id)
+    / %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
+    %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+      - @clothes.each do |clothe|
+        .container
+          - if clothe.picture 
+            %p= link_to image_tag(clothe.picture.photo.url(:medium)), closet_clothe_path(clothe.closet_id, clothe)
+          %h5= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
+          %hr
       
      

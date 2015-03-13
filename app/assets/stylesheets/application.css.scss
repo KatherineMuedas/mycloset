@@ -4,3 +4,27 @@
 @import "custom_foundation";
 @import "framework_and_overrides";
 @import "font-awesome";
+
+.light-border-top{
+  border-top: 1px solid $soft-gray;
+  }
+
+.side-container{
+  ul{
+    h5{
+      text-align: center;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: 27px;
+      color: #4f4f4f;
+    }
+    li{
+      a{
+      color: $oil;
+      font-size: 15px;
+      &:hover{
+      color: $gold;
+      }
+      }
+    }  
+  }
+}

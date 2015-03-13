@@ -11,7 +11,8 @@
 .text-info{color: $info-color;}
 .bg-info{background: $info-color;}
 
-.bg-red{background: $red;}
+.bg-smoke{background: $smoke;}
+.bg-darker-smoke{background: $darker-smoke;}
 .bg-sky-blue{background: $sky-blue;}
 .bg-blue{background: $blue;}
 .bg-yellow{background: $yellow;}
@@ -31,7 +32,7 @@
 .bg-light-tone{background: $light-tone;}
 .bg-mid-tone{background: $mid-tone;}
 .bg-dark-tone{background: $dark-tone;}
-.bg-darker-tone{background: $darker-tone;}
+//.bg-darker-tone{background: $darker-tone;}
 
 .text-white{color: $white;}
 .text-black{color: $black;}
@@ -39,7 +40,7 @@
 .text-light-tone{color: $light-tone;}
 .text-mid-tone{color: $mid-tone;}
 .text-dark-tone{color: $dark-tone;}
-.text-darker-tone{color: $darker-tone;}
+//.text-darker-tone{color: $darker-tone;}
 
 
 // .primary-header {font-family: bebas-neue, proxima-nova, helvetica, sans-serif;}
