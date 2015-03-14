@@ -4,16 +4,19 @@
 .small-12.medium-9.large-9.columns
   %h4= @clothe.name
   %h6= @clothe.brand
-  %p Purchase date: #{@clothe.purchase_at}
+  %p Purchase date: #{@clothe.purchase_at.strftime('%Y')}
   %p= @clothe.state_category
   - if @clothe.notes.empty? 
     %p= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
     @clothe.id) 
   - else 
     %p Notes: #{ @clothe.notes}
-  %li= link_to 'Edit clothes information', edit_closet_clothe_path(@closet.id, 
-    @clothe.id) 
-  = link_to 'Delete Clothe', closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?'} 
+  
+  = link_to 'Edit clothes information', edit_closet_clothe_path(@closet.id, 
+    @clothe.id), class: 'button center' 
+     
+  = link_to 'Delete Clothe', closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?'}, class: 'button right'
+
+  = link_to 'Back', closet_path(@closet.id), class: 'button left' 
      
 
-    
