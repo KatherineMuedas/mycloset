@@ -1,6 +1,6 @@
 class ClothesController < ApplicationController
   before_action :set_closet
-  before_action :set_clothe, only:[:show, :edit , :update]
+  before_action :set_clothe, only:[:show, :edit , :update, :destroy]
   
   def new
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
@@ -36,6 +36,8 @@ class ClothesController < ApplicationController
   end
 
   def destroy
+     @clothe.destroy
+    redirect_to closet_path(current_user.closet.id)
   end
 
   private

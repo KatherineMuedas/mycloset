@@ -13,6 +13,7 @@
     %p Notes: #{ @clothe.notes}
   %li= link_to 'Edit clothes information', edit_closet_clothe_path(@closet.id, 
     @clothe.id) 
+  = link_to 'Delete Clothe', closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?'} 
      
 
     
