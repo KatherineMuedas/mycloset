@@ -13,7 +13,6 @@
   ul{
     h5{
       text-align: center;
-      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
       font-size: 27px;
       color: #4f4f4f;
     }
@@ -21,7 +20,6 @@
       a{
       color: $oil;
       font-size: 15px;
-      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
       &:hover{
       color: $gold;
       }
@@ -31,9 +29,19 @@
 }
 
 li.card{
-  border: 1px solid grey;
+  border: 1px solid $soft-gray;
   border-radius: 10px;
   text-align: center;
   padding: 0 0 20px 0;
   margin: 10px;
+  background-color: $darker-smoke;
+  a{
+    color: $oil;
+    font-size: 14px;
+    font-weight: bold;
+    &:hover{
+      color: $gray;
+      font-weight: normal;
+      }
+  }
 }
