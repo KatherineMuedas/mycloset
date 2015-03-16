@@ -29,15 +29,16 @@
 }
 
 li.card{
-  border: 1px solid $soft-gray;
+  max-width: 225px;
+  // border: 1px solid $soft-gray;
   border-radius: 10px;
   text-align: center;
   padding: 0 0 20px 0;
   margin: 10px;
-  background-color: $darker-smoke;
+  background-color: $smoke;
   a{
     color: $oil;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     &:hover{
       color: $gray;

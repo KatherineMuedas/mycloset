@@ -7,7 +7,7 @@
       Add clothing
 
     / %li= link_to 'Edit', edit_closet_clothe_path(@closet.id)
-    %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+    %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-3
       - @clothes.each do |clothe|
         %li.card
           - if clothe.picture 
