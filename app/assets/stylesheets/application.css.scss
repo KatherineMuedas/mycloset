@@ -46,3 +46,28 @@ li.card{
       }
   }
 }
+
+.clothe-card{
+  border: 1px solid $soft-gray;
+  background-color: $darker-smoke;
+  padding: 30px;
+  h4{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 27px;
+    color: $oil;
+    text-align: center;
+    a{
+      color: $oil;
+      span.small{
+        font-size: 16px;
+      }
+    }
+  }
+  p{
+    font-size: 13px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin-bottom: 5px;
+  }
+  
+
+}

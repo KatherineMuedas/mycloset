@@ -1,22 +1,28 @@
-.small-12.medium-3.large-3.columns
-  - if @picture 
-    = image_tag (@clothe.picture.photo.url(:medium))
-.small-12.medium-9.large-9.columns
-  %h4= @clothe.name
-  %h6= @clothe.brand
-  %p Purchase date: #{@clothe.purchase_at.strftime('%Y')}
-  %p= @clothe.state_category
-  - if @clothe.notes.empty? 
-    %p= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
-    @clothe.id) 
-  - else 
-    %p Notes: #{ @clothe.notes}
-  
-  = link_to 'Edit clothes information', edit_closet_clothe_path(@closet.id, 
-    @clothe.id), class: 'button center' 
-     
-  = link_to 'Delete Clothe', closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?'}, class: 'button right'
-
-  = link_to 'Back', closet_path(@closet.id), class: 'button left' 
-     
+.row  
+  .small-12.medium-6.large-5.columns.text-center
+    - if @picture 
+      = image_tag (@clothe.picture.photo.url(:large))
+  .small-12.medium-6.large-7.columns
+    .clothe-card.text-center
+      %p
+        = link_to closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?' }, class: 'right' do
+          %i.fa.fa-times
+      %h4.margin-bottom-0
+        = @clothe.name 
+        = link_to edit_closet_clothe_path(@closet.id, 
+        @clothe.id) do
+          %span.small
+            %i.fa.fa-pencil 
+      %h6.text-center.text-dark-gray.margin-bottom-30= @clothe.brand
+      .text-center
+        %p= @clothe.state_category
+        %p Year: #{@clothe.purchase_at.strftime('%Y')} 
+      - if @clothe.notes.empty? 
+        %p= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
+        @clothe.id) 
+      - else 
+        %p Notes: #{ @clothe.notes}
+      %p.text-center 
+        = link_to 'Back', closet_path(@closet.id), class: 'small secondary round button' 
+       
 
