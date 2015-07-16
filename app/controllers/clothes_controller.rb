@@ -10,7 +10,10 @@ class ClothesController < ApplicationController
   end
 
   def create
+    @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
+    @categoriess = ["Dirty" , "Clean" ]
     @clothe = @closet.clothes.new(clothe_params)
+    @picture = @clothe.picture
     @clothe.user_id = current_user.id
     if @clothe.save
       redirect_to @closet, notice: 'Successfully created.'

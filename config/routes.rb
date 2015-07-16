@@ -6,7 +6,15 @@ Rails.application.routes.draw do
   resources :closets, only: [:show, :index] do
     resources :clothes
   end
-root to: 'closets#index'
+
+  authenticated :user do
+    root to: 'closets#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: "home#index"
+  end
+
 end
 
 
