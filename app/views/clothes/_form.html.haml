@@ -1,31 +1,28 @@
 = simple_form_for [@closet, @clothe]  do |f| 
   = f.error_notification
+  .row
+    .large-6.medium-6.small-12.columns
+      = f.input :name 
+    .large-6.medium-6.small-12.columns
+      = f.input :brand
+  .row
+    .large-6.medium-6.small-12.columns
+      = f.input :purchase_at, as: :date, start_year: Date.today.year - 10 , end_year: Date.today.year , discard_day: true, order: [:month, :year]     
+    .large-6.medium-6.small-12.columns
+      = f.fields_for :picture, @picture do |picture|
+        .nested-fields
+          - if @picture.id
+            = image_tag (@picture.photo.url(:medium))
+          = picture.input :photo
+          = picture.input :user_id, input_html: {value: current_user.id}, as: :hidden
+          = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+  .row
+    .large-6.small-12.columns
+      = f.input :type_category, collection: @categoriest, prompt: "Select the type of clothes"
+    .large-6.small-12.columns
+      = f.input :state_category, collection: @categoriess, prompt: "Select the state of the clothes"
   .form-group
-    = f.input :name
-    %br
-  .form-group
-    = f.fields_for :picture, @picture do |picture|
-      .nested-fields
-        - if @picture.id
-          = image_tag (@picture.photo.url(:medium))
-        = picture.input :photo
-        = picture.input :user_id, input_html: {value: current_user.id}, as: :hidden
-        = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
-  .form-group
-    = f.input :purchase_at
-    %br
-  .form-group
-    = f.input :brand
-    %br
-  .form-group
-    = f.input :notes
-    %br
-  .form-group
-    = f.input :type_category, collection: @categoriest, prompt: "Select the type of clothes"
-    %br
-  .form-group
-    = f.input :state_category, collection: @categoriess, prompt: "Select the state of the clothes"
-    %br
+    = f.input :notes, input_html: { rows: 5 }
   %p
-    = link_to 'Back', closet_path(@closet.id), :class => 'button left'
-    = f.submit 'Submit', :class => 'button right'
+    = link_to 'Back', closet_path(@closet.id), :class => 'small secondary round button left'
+    = f.submit 'Submit', :class => 'small secondary round button right'
