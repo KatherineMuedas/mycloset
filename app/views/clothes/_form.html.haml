@@ -21,8 +21,10 @@
       = f.input :type_category, collection: @categoriest, prompt: "Select the type of clothes"
     .large-6.small-12.columns
       = f.input :state_category, collection: @categoriess, prompt: "Select the state of the clothes"
-  .form-group
-    = f.input :notes, input_html: { rows: 5 }
-  %p
-    = link_to 'Back', closet_path(@closet.id), :class => 'small secondary round button left'
-    = f.submit 'Submit', :class => 'small secondary round button right'
+  .row
+    .small-12.columns
+      = f.input :notes, input_html: { rows: 5 }
+  .row
+    %p.small-12.columns
+      = link_to 'Back', closet_path(@closet.id), :class => 'small secondary round button left'
+      = f.submit 'Submit', :class => 'small secondary round button right'
