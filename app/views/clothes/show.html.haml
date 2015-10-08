@@ -2,11 +2,13 @@
   .small-12.medium-6.large-5.columns.text-center
     - if @picture 
       = image_tag (@clothe.picture.photo.url(:large))
+    %p.margin-top-40
+      = link_to 'Back', closet_path(@closet.id), class: 'small secondary round button left'
   .small-12.medium-6.large-7.columns
     .clothe-card.text-center
       %p
         = link_to closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?' }, class: 'right' do
-          %i.fa.fa-times
+          %i.fa.fa-trash.danger.fa-lg
       %h4.margin-bottom-0
         = @clothe.name 
         = link_to edit_closet_clothe_path(@closet.id, 
@@ -15,14 +17,14 @@
             %i.fa.fa-pencil 
       %h6.text-center.text-dark-gray.margin-bottom-30= @clothe.brand
       .text-center
-        %p= @clothe.state_category
-        %p Year: #{@clothe.purchase_at.strftime('%Y')} 
+        %p It is #{@clothe.state_category}
+        %p Got it in #{@clothe.purchase_at.strftime('%Y')} 
       - if @clothe.notes.empty? 
-        %p= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
+        %p.margin-top-40.link= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
         @clothe.id) 
       - else 
         %p Notes: #{ @clothe.notes}
-      %p.text-center 
-        = link_to 'Back', closet_path(@closet.id), class: 'small secondary round button' 
+       
+        
        
 

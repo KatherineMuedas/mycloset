@@ -1,3 +1,14 @@
 // Place all the styles related to the Clothes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.link{
+  a{
+    color: $gold;
+    font-size: 15px;
+    &:hover{
+      color: darken($gold,10%);
+      font-weight: bold;
+    }
+  }
+}
