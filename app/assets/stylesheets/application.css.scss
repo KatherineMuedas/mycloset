@@ -11,6 +11,9 @@
 .light-border-top{
   border-top: 1px solid $soft-gray;
   }
+// .orange-border{
+//   border-bottom: : 1px, bold;
+//   }
 
 .side-container{
   ul{
@@ -77,4 +80,10 @@ li.card{
 
 .main-height{
   min-height: 85vh;
+}
+
+.dark_font{
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #383838;
+  font-size: 25px;
 }

@@ -7,7 +7,7 @@
       = f.input :brand
   .row
     .large-6.medium-6.small-12.columns
-      = f.input :purchase_at, as: :date, start_year: Date.today.year - 10 , end_year: Date.today.year , discard_day: true, order: [:month, :year]     
+      = f.input :purchase_at, as: :date, start_year: Date.today.year - 10 , end_year: Date.today.year , discard_day: true, order: [:month, :year], input_html: {class: "small-6 columns"}    
     .large-6.medium-6.small-12.columns
       = f.fields_for :picture, @picture do |picture|
         .nested-fields
