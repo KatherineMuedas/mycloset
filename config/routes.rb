@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   #   root to: 'closets#index', as: :authenticated_root
   # end
 
-  unauthenticated do
-    root to: "closets#index"
-  end
+  
+  root to: "closets#index"
+  
 
 end
 
