@@ -8,9 +8,9 @@
 @import "font_awesome_icons";
 @import "framework_and_overrides";
 
-.homepage-photo{
-  width: 100%;
-  height: 50%;
+.main-photo{
+  // width: 100vw;
+  max-height: 75vh;
 }
 
 .no-pad-rl{
@@ -20,6 +20,8 @@
 .hangers-bottom{
   background-image: image-url('hanger.jpg');
   background-repeat: repeat-x;
+  height: 60px;
+  width: 100%;
 }
 .light-border-top{
   border-top: 1px solid $soft-gray;
@@ -98,5 +100,5 @@ li.card{
 .dark_font{
   font-family: "Lucida Console", Monaco, monospace;
   color: #383838;
-  font-size: 25px;
+  font-size: 20px;
 }

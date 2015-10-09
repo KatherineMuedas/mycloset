@@ -7,12 +7,12 @@ Rails.application.routes.draw do
     resources :clothes
   end
 
-  authenticated :user do
-    root to: 'closets#index', as: :authenticated_root
-  end
+  # authenticated :user do
+  #   root to: 'closets#index', as: :authenticated_root
+  # end
 
   unauthenticated do
-    root to: "home#index"
+    root to: "closets#index"
   end
 
 end
