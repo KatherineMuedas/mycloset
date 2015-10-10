@@ -27,8 +27,8 @@ group :development do
   gem 'guard-rails'
   gem 'guard-bundler'
   gem 'guard-minitest'
-  gem 'guard-livereload'
-  gem 'rack-livereload'
+  # gem 'guard-livereload'
+  # gem 'rack-livereload'
   gem 'ruby_gntp' # send notifications
   gem 'xray-rails'
 end
