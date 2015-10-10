@@ -1,16 +1,16 @@
 .row.pad-top-50 
-  .large-11.columns
+  .large-11.medium-11.columns
     .row
-      .large-3.columns.side-container
+      .large-3.medium-3.columns.side-container
         = render 'closets/clothes_categories'
-      .large-9.columns
+      .large-9.medium-9.columns
         %ul.small-block-grid-2.medium-block-grid-3.large-block-grid-3
           - @clothes.each do |clothe|
-            %li.card
+            %li.card.margin-bottom-0
               - if clothe.picture 
                 %p= link_to image_tag(clothe.picture.photo.url(:medium)), closet_clothe_path(clothe.closet_id, clothe)
               %h5= link_to clothe.name , closet_clothe_path(@closet.id, clothe.id)
-  .large-1.columns
+  .large-1.medium-1.columns
     = link_to new_closet_clothe_path(@closet.id) , class: 'button alert tiny round'do
       %i.fa.fa-plus.fa-lg
       Add clothes

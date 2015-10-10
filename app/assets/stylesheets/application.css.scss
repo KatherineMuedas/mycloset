@@ -37,7 +37,6 @@
     }
     li{
       margin-bottom: 3px;
-      margin-left: 30px;
       a{
       color: $oil;
       font-size: 15px;
@@ -52,12 +51,8 @@
 }
 
 li.card{
-  // max-width: 225px;
-  // border: 1px solid $soft-gray;
-  // border-radius: 10px;
   text-align: center;
   padding: 0 0 20px 0;
-  margin-bottom: 10px;
   background-color: $white;
   border:1px solid $soft-gray;
   a{
