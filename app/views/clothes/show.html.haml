@@ -5,24 +5,26 @@
         = image_tag (@clothe.picture.photo.url(:large))
     .small-12.medium-6.large-7.columns
       .clothe-card.text-center
-        %p
-          = link_to closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?' }, class: 'right' do
-            %i.fa.fa-trash.danger.fa-lg
-        %h4.margin-bottom-0
+        %h4.margin-bottom-0.margin-top-15
           = @clothe.name 
           = link_to edit_closet_clothe_path(@closet.id, 
           @clothe.id) do
             %span.small
               %i.fa.fa-pencil 
-        %h6.text-center.text-dark-gray.margin-bottom-30= @clothe.brand
-        .text-center
-          %p It is #{@clothe.state_category}
-          %p Got it in #{@clothe.purchase_at.strftime('%Y')} 
+        %h6.text-center.text-dark-gray.margin-bottom-10= @clothe.brand
+        .text-center.light-border-top.pad-top-20
+          - if @clothe.state_category
+            %p It is #{@clothe.state_category}
+          - if @clothe.purchase_at
+            %p Got it in #{@clothe.purchase_at.strftime('%Y')} 
         - if @clothe.notes.empty? 
           %p.margin-top-40.link= link_to 'Add a note', edit_closet_clothe_path(@closet.id, 
-          @clothe.id) 
+          @clothe.id)
         - else 
           %p Notes: #{ @clothe.notes}
+      %p.margin-top-40.margin-right-150
+        = link_to 'Delete this clothing',closet_clothe_path(@closet.id, @clothe.id), method: :delete, data: { confirm: 'Are you sure you want to delete this clothe?' }, class: 'right button alert tiny round' 
+            
 .row
   %div
     %p.margin-top-40

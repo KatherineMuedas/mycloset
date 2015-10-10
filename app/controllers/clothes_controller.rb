@@ -4,14 +4,14 @@ class ClothesController < ApplicationController
   
   def new
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
-    @categoriess = ["Dirty" , "Clean" ]
+    @categoriess = ["dirty" , "clean" ]
     @clothe = @closet.clothes.new
     @picture = @clothe.build_picture
   end
 
   def create
     @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
-    @categoriess = ["Dirty" , "Clean" ]
+    @categoriess = ["dirty" , "clean" ]
     @clothe = @closet.clothes.new(clothe_params)
     @picture = @clothe.picture
     @clothe.user_id = current_user.id
@@ -27,6 +27,8 @@ class ClothesController < ApplicationController
   end
 
   def edit
+    @categoriest = ["Dresses" , "Skirts" , "Pants" , "Tops" , "Jackets" , "Sweaters" , "Blazers" , "Jeans" , "Jumpsuits" , "Shorts"]
+    @categoriess = ["dirty" , "clean" ]
     @picture = @clothe.picture
   end
 

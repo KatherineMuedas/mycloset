@@ -3,6 +3,7 @@
 @import "utility_classes";
 @import "custom_foundation";
 @import "clothes";
+@import "closets";
 @import "footer";
 @import "font-awesome";
 @import "font_awesome_icons";
@@ -13,10 +14,6 @@
   max-height: 75vh;
 }
 
-.no-pad-rl{
-  padding-left: 0px;
-  padding-right: 0px;
-}
 .hangers-bottom{
   background-image: image-url('hanger.jpg');
   background-repeat: repeat-x;
@@ -31,6 +28,7 @@
 //   }
 
 .side-container{
+  // border:1px solid $soft-gray;
   ul{
     h5{
       text-align: center;
@@ -38,11 +36,15 @@
       color: #4f4f4f;
     }
     li{
+      margin-bottom: 3px;
+      margin-left: 30px;
       a{
       color: $oil;
       font-size: 15px;
       &:hover{
-      color: $gold;
+      color: $oil;
+      font-weight: bold;
+      font-size: 16px;
       }
       }
     }  
@@ -50,28 +52,32 @@
 }
 
 li.card{
-  max-width: 225px;
+  // max-width: 225px;
   // border: 1px solid $soft-gray;
-  border-radius: 10px;
+  // border-radius: 10px;
   text-align: center;
   padding: 0 0 20px 0;
-  margin: 10px;
-  background-color: $smoke;
+  margin-bottom: 10px;
+  background-color: $white;
+  border:1px solid $soft-gray;
   a{
-    color: $oil;
+    color: $gold;
     font-size: 13px;
-    font-weight: bold;
+    // font-weight: bold;
     &:hover{
-      color: $gray;
+      color: $gold;
       font-weight: normal;
+      font-size: 14px;
       }
   }
 }
 
 .clothe-card{
   border: 1px solid $soft-gray;
-  background-color: $darker-smoke;
-  padding: 30px;
+  background-color: $white;
+  margin-left: 120px;
+  margin-right: 30px;
+  padding-bottom: 30px;
   h4{
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 27px;
