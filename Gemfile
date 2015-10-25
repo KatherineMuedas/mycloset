@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem "paperclip", "~> 4.2"
 gem 'foundation-datetimepicker-rails'
-gem "aws-sdk"
+gem "aws-sdk", '< 2'
 gem 'asset_sync'
 group :development do
   gem 'better_errors'
