@@ -91,4 +91,19 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+        bucket: Rails.application.secrets.fog_directory,
+        access_key_id: Rails.application.secrets.aws_access_key_id,
+        secret_access_key: Rails.application.secrets.aws_secret_access_key
+      },
+      s3_protocol: 'https',
+      path: "/assets/:attachment/:id/:style.:extension"
+    }
+
+  config.action_controller.asset_host = Proc.new do |source|
+    Rails.application.secrets.cloudfront_url
+  end 
 end
