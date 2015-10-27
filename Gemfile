@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
+
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +19,9 @@ gem "paperclip", "~> 4.2"
 gem 'foundation-datetimepicker-rails'
 gem "aws-sdk", '< 2'
 gem 'asset_sync'
+
+gem 'puma'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -37,9 +41,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'thin'
 end
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
 end
