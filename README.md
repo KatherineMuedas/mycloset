@@ -1,6 +1,6 @@
 Mycloset
 ================
-
+Keep an online tracking of your wardrobe.
 This application requires:
 
 - Ruby 2.1.5
